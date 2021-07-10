@@ -42,6 +42,27 @@ return [
             'visibility' => 'public',
         ],
 
+        'uploads' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads',
+        ],
+
+        'product_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/products/images'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/products/images'
+        ],
+
+        'product_temp_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/products/images/temp'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/products/images/temp'
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -50,7 +71,6 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
     ],
@@ -67,7 +87,10 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        // public_path('storage') => storage_path('app/public'),
+        public_path('uploads') => storage_path('app/uploads'),
+        public_path('uploads/products/images') => storage_path('app/uploads/products/images'),
+        public_path('uploads/products/images/temp') => storage_path('app/uploads/products/images/temp')
     ],
 
 ];

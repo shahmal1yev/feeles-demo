@@ -1,0 +1,75 @@
+@import "variables.less";
+
+// @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+* {
+	/*font-family: 'PT Serif', serif;*/
+	// font-family: 'Times New Roman', sans-serif;
+	font-family: 'Lora', serif;
+}
+
+@import "../libs/bootstrap/5.0.1/less/bootstrap.less";
+@import "../libs/fontawesome-free-5.15.3-web/less/fontawesome";
+@import "../libs/fontawesome-free-5.15.3-web/less/solid";
+@import "../libs/fontawesome-free-5.15.3-web/less/regular";
+@import "../libs/fontawesome-free-5.15.3-web/less/brands";
+
+@import "_icons.less";
+@import "_animations.less";
+
+@import "_bg.less";
+@import "_text.less";
+@import "_headers.less";
+@import "_buttons.less";
+@import "_checkbox.less";
+@import "_footer.less";
+@import "_carousel.less";
+@import "_sidebar.less";
+@import "_navbar.less";
+@import "_loader.less";
+@import "_badge.less";
+@import "_filter.less";
+@import "_product.less";
+@import "_features.less";
+@import "_genderCard.less";
+@import "_basket.less";
+@import "_hashtags.less";
+
+@import "_swiper.less";
+
+body {
+	background-image: url('/assets/subtle/feeles-amerika-sans.png');
+	background-attachment: fixed;
+}
+
+#pageTools {
+	left: 15px;
+	bottom: 20px;
+	z-index: 998;
+	cursor: pointer;
+
+	.d-flex;
+	.flex-column;
+	.position-fixed;
+}
+
+#pageTools > * {
+	margin: 10px auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #152233; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bs-dark);
+}

@@ -1,0 +1,28 @@
+#footerMain > .footer-grid-container
+{
+	display: grid;
+	grid-template-columns: repeat(1, calc(100% / 1 - 1px));
+	grid-gap: 1px;
+	background-color: #f8f9fa25;
+}
+
+#footerMain > .footer-grid-container > .item
+{
+	background-color: #152233;
+}
+
+@media(min-width: 470px)
+{
+	#footerMain > .footer-grid-container
+	{
+		grid-template-columns: repeat(2, calc(100% / 2 - 1px));
+	}
+}
+
+@media(min-width: 992px)
+{
+	#footerMain > .footer-grid-container
+	{
+		grid-template-columns: repeat(4, calc(100% / 4 - 1px));
+	}
+}

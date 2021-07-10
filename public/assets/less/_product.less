@@ -1,0 +1,100 @@
+.product-card {
+	background-color: var(--bs-white);
+	padding: 0;
+	margin: 0;
+}
+
+.product-card .product-link {
+	display: block;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+
+.product-card .product-header {
+	position: relative;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	margin: 0;
+	padding: 0;
+}
+
+.product-card .product-header .product-info {
+	position: absolute;
+	z-index: 9;
+}
+
+.product-card .product-header .product-info.viewed-info {
+	top: 10px;
+	right: 10px;
+}
+
+.product-card .product-header .product-info.discount-info {
+	top: 10px;
+	left: 10px;
+	text-transform: uppercase;
+}
+
+.product-card .product-header .product-info.addbookmark-button-container {
+	right: 15px;
+	bottom: 10px;
+}
+
+.product-card .product-header .product-info .product-info-content {
+	font-size: 10px;
+	color: var(--bs-white);
+	background-color: var(--bs-danger);
+	padding: 0.25rem 0.5rem;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+	border-radius: 0.5rem;
+}
+
+.product-card .product-footer {
+	padding: 0 1rem;
+	margin: 0;
+}
+
+.product-card .product-name {
+	padding: .5rem 0;
+	margin: 0;
+	margin-top: 1rem;
+	color: var(--bs-dark);
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 1.25rem;
+}
+
+.product-card .product-price {
+	text-align: center;
+	color: var(--bs-dark);
+	padding: 0;
+	margin: 0;
+}
+
+.product-card .product-image-container {
+	overflow: hidden;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.product-card .product-image-container .product-image {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+
+	transition: all .3s;
+	transition-timing-function: ease-in-out;
+}
+
+.product-card:hover .product-image {
+	transform: scale(1.1);
+}
+
+.product-viewed-info {
+	padding: 0;
+	margin: 0;
+}
+
+.product-viewed-info .fa-eye {
+	margin-right: 0.25rem;
+}

@@ -1,0 +1,139 @@
+#features
+{
+	background-color: @coldColor;
+	
+	*
+	{
+		user-select: none;
+	}
+
+
+	.features
+	{
+		display: grid;
+		grid-gap: 1px;
+		grid-template-areas: 'kinds'
+							 'orders'
+							 'fast-delivery'
+							 'return'
+							 'live-support'
+							 'interface';
+
+
+		.feature-item
+		{
+			.p-4;
+			background-color: #fff;
+
+			.caption
+			{
+				.mt-4;
+				.text-center;
+				.text-secondary;
+			}
+
+			&:before
+			{
+				@size: 70px;
+
+				width: 100%;
+				height: @size;
+				display: block;
+				background-repeat: no-repeat;
+				background-size: @size @size;
+				background-position: center center;
+
+			}
+
+			&.kinds
+			{
+				grid-area: kinds;
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 1);
+				}
+			}
+
+			&.orders
+			{
+				grid-area: orders;
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 2);
+				}
+			}
+
+			&.fast-delivery
+			{
+				grid-area: fast-delivery;
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 3);
+				}
+			}
+
+			&.return
+			{
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 4);
+				}
+			}
+
+			&.live-support
+			{
+				grid-area: live-support;
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 5);
+				}
+			}
+
+			&.interface
+			{
+				grid-area: interface;
+
+				&:before
+				{
+					content: "";
+					background-image: extract(@svgs, 6);
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) 
+{
+	.features {
+		grid-template-areas: 'kinds orders'
+							 'fast-delivery return'
+							 'live-support interface' !important;
+	}
+}
+
+@media (min-width: 992px) 
+{
+	.features {
+		grid-template-areas: 'kinds orders fast-delivery'
+							 'return live-support interface' !important;
+	}
+}
+
+@media (min-width: 1400px) 
+{
+	.features {
+		grid-template-areas: 'kinds orders fast-delivery'
+							 'return live-support interface' !important;
+	}
+}

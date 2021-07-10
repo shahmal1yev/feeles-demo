@@ -1,0 +1,233 @@
+.basket-item 
+{
+	.p-2;
+	.m-0;
+
+	.basket-link 
+	{
+		color: @mainColor;
+
+		.bg-white;
+		.text-decoration-none;
+
+		.d-block;
+		.shadow;
+
+		.p-0;
+		.m-0;
+
+		.border;
+
+		&:hover 
+		{
+			background-color: rgba(250,250,250) !important;
+		}
+	}
+
+	.basket-thumbnail 
+	{
+		.img-fluid; 
+		.w-100; 
+		.rounded; 
+		.shadow;
+	}
+
+	.basket-header
+	{
+		.w-100; 
+		.p-0;
+		.m-0;
+
+		.d-flex;
+		.justify-content-between;
+		.align-items-end;
+
+		.header-text
+		{
+			.text-dark-blue;
+		}
+
+		.buttons
+		{
+			.d-flex;
+			.p-0;
+			.m-0;
+
+			.item:not(:last-child)
+			{
+				.me-2;
+			}
+
+			.item
+			{
+				width: 35px;
+				height: 35px;
+
+				.text-muted;
+
+				.border;
+				.rounded-circle;
+				.shadow-sm;
+
+				.d-table;
+				
+				transition: all .2s;
+
+				&:before
+				{
+					.text-center;
+					.align-middle;
+					.d-table-cell;
+				}
+
+				&:hover:before
+				{
+					color: @mainColor !important;
+				}
+			}
+
+			.heart
+			{
+				.bookmark-button;
+				.shadow-sm;
+			}
+
+			.trash
+			{
+				.trash-alt-icon;
+				.fw-normal;
+			}
+		}
+	}
+
+	.basket-main,
+	.basket-footer
+	{
+		.w-100; 
+		.p-0;
+		.m-0;
+
+		.mt-3;
+	}
+
+	.basket-main
+	{
+		.basket-table
+		{
+			.table;
+
+			tr
+			{
+				td
+				{
+					.text-muted;
+					.px-0;
+
+					&:nth-child(2)
+					{
+						.text-end;
+					}
+
+					.text
+					{
+						.px-2;
+					}
+				}
+			}
+		}
+	}
+
+	.basket-footer
+	{
+		.p-0;
+		.m-0;
+		.mt-4;
+
+		.d-flex;
+		.justify-content-between;
+		.align-items-center;
+
+		.price
+		{
+			.price-text
+			{
+				.h5;
+				.text-dark-blue;
+			}
+		}
+
+		.quantity
+		{
+			.p-0;
+			.m-0;
+		}
+	}
+}
+
+.order-summary
+{
+	.position-sticky; 
+	.border; 
+	.bg-white; 
+	.shadow; 
+	.w-100; 
+	.p-4; 
+	.m-0;
+
+	.header
+	{
+		.m-0;
+		.p-0;
+		.py-1;
+
+		.header-text
+		{
+			.p-0; 
+			.m-0;
+
+			.text-center; 
+			.text-dark-blue;
+
+			.h3; 
+		}
+	}
+
+	.main
+	{
+		.p-0;
+		.m-0;
+
+		tr:last-child
+		{
+			td
+			{
+				.border-0;
+			}
+		}
+	}
+
+	.footer
+	{
+		.p-1;
+		.m-0;
+
+		.d-flex;
+		.justify-content-between;
+
+		.text-uppercase;
+		.text-dark-blue;
+
+		.summary,
+		.summary-text
+		{
+			.fw-bold;
+			.p-0;
+			.m-0;
+		}
+
+		.summary-text
+		{
+			.text-end;
+		}
+	}
+}

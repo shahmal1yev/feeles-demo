@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    {{ __('Xoş gəlmisiniz') }})
+    {{ __('Xoş gəlmisiniz') }}
 @endsection
 
 @section('content')

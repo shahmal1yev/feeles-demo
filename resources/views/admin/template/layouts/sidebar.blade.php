@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 
@@ -60,40 +60,67 @@
                 Addons
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBanners"
+                    aria-expanded="true" aria-controls="collapseBanners">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>{{ __("Banner") }}</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseBanners" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="/admin/banners/new">Yeni</a>
+                        <a class="collapse-item" href="/admin/banners">Hamısı</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>{{ __("Banner") }}</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubbanners"
+                    aria-expanded="true" aria-controls="collapseSubbanners">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Subbanner") }}</span>
+                </a>
+                <div id="collapseSubbanners" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/admin/subbanners/new">Yeni</a>
+                        <a class="collapse-item" href="/admin/subbanners">Hamısı</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHashtags"
+                    aria-expanded="true" aria-controls="collapseHashtags">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Heşteq") }}</span>
+                </a>
+                <div id="collapseHashtags" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/admin/hashtags/new">Yeni</a>
+                        <a class="collapse-item" href="/admin/hashtags">Hamısı</a>
+                    </div>
+                </div>
             </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
+                    aria-expanded="true" aria-controls="collapseProducts">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Məhsullar") }}</span>
+                </a>
+                <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/admin/products/new">Yeni</a>
+                        <a class="collapse-item" href="/admin/products/stock">Stok</a>
+                        <a class="collapse-item" href="/admin/products">Hamısı</a>
+                    </div>
+                </div>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

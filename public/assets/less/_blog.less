@@ -1,0 +1,61 @@
+.blog-card 
+{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: red;
+
+	height: 400px;
+	overflow: hidden;
+
+	position: relative;
+
+	&:after
+	{
+		content: '';
+
+		width: 100%;
+		height: 100%;
+		
+		background-color: fade(@mainColor, 50%);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.content
+	{
+		z-index: 2;
+		position: relative;
+
+		.header
+		{
+			text-align: center;
+
+			height: 50px;
+			overflow: hidden;
+
+			.p-2;
+		}
+
+		.main
+		{	
+			left: 0;
+			top: 350px;
+			position: absolute;
+
+			.p-2;
+			.text-center;
+
+			.desc
+			{
+				color: #f0f0f0;
+
+				.p-0;
+				.m-0;
+			}
+		}
+	}
+}
