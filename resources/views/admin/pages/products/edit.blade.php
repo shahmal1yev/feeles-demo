@@ -41,7 +41,7 @@
 
                                     <div class='card mb-4'>
                                         <div class='card-header'>
-                                            <span class='product-name-az text-truncate d-block'>{{ __("Yeni məhsul") }}</span>
+                                            <span class='product-name-az text-truncate d-block'>{{ __("New Product") }}</span>
                                         </div>
                                         <div class='card-body overflow-auto'>
                                             <div class='row p-0 m-0'>

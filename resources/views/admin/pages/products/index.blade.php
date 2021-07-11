@@ -40,7 +40,7 @@
                                     
                                     <div class='card mb-4'>
                                         <div class='card-header'>
-                                            <span class='product-name-az text-truncate d-block'>{{ $product->translate('az')->name }}</span>
+                                            <span class='product-name-az text-truncate d-block'>{{ $product->translate(app()->getLocale())->name }}</span>
                                         </div>
                                         <div class='card-body overflow-auto'>
                                             <ul class='product-image-list list-unstyled row flex-nowrap'>
@@ -67,7 +67,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>{{ __("Kateqoriya") }}</th>
-                                                    <td class='text-right'>{{ $product->category->translate('az')->name }}</td>
+                                                    <td class='text-right'>{{ $product->category->translate(app()->getLocale())->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>{{ __("Qiymət") }}</th>
