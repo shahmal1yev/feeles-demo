@@ -19,7 +19,7 @@ class DropdownMenuItemFill extends Seeder
             [
                 'menu_item_id' => 2,
                 'title_id' => 1,
-                'link' => '/#',
+                'link' => '#',
                 'az' => ['label' => 'Şalvarlar'],
                 'ru' => ['label' => 'Штаны'],
                 'en' => ['label' => 'Pants']
@@ -27,7 +27,7 @@ class DropdownMenuItemFill extends Seeder
             [
                 'menu_item_id' => 3,
                 'title_id' => 2,
-                'link' => '/#',
+                'link' => '#',
                 'az' => ['label' => 'Ətəklər'],
                 'ru' => ['label' => 'Юбки'],
                 'en' => ['label' => 'Skirts']
@@ -35,7 +35,7 @@ class DropdownMenuItemFill extends Seeder
             [
                 'menu_item_id' => 4,
                 'title_id' => 3,
-                'link' => '/#',
+                'link' => '#',
                 'az' => ['label' => 'Jaketlər'],
                 'ru' => ['label' => 'Пиджак'],
                 'en' => ['label' => 'Jackets']

@@ -20,7 +20,7 @@
                         class="carousel-item {{ ($index == 0) ? 'active' : false }}"
                     >
                         <a 
-                            href='{{ $banner->link }}' class='d-block p-0 m-0'
+                            href='{{ url(app()->getLocale() . $banner->link) }}' class='d-block p-0 m-0'
                         >
                             <img 
                                 src="{{ $banner->source }}"

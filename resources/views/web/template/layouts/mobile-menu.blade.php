@@ -27,7 +27,7 @@
                                     class='accordion-button collapsed'
                                     data-bs-toggle='collapse'
                                     data-bs-target='#{{ $dropdownID }}'
-                                    href="{{ $menuItem->link }}"
+                                    href="{{ url(app()->getLocale() . $menuItem->link) }}"
                                 >
                                     {{ $menuItem->label }}
                                 </a>
@@ -39,7 +39,7 @@
                                         @foreach($menuItem->dropdownItems as $dropdownItem)
 
                                             <li class='list-group-item'>
-                                                <a class='link' href='{{ $dropdownItem->link }}'>
+                                                <a class='link' href='{{ url(app()->getLocale() . $dropdownItem->link) }}'>
                                                     {{ $dropdownItem->label }}
                                                 </a>
                                             </li>
@@ -53,7 +53,7 @@
                     @else
                         <div class='accordion-item'>
                             <h2 class='accordion-header'>
-                                <a class='accordion-button link collapsed' href='{{ $menuItem->link }}'>
+                                <a class='accordion-button link collapsed' href='{{ url(app()->getLocale() . $menuItem->link) }}'>
                                     {{ $menuItem->label }}
                                 </a>
                             </h2>

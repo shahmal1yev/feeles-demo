@@ -16,7 +16,7 @@
 									<ul class='list-group fl-dropdown-list'>
 										@foreach($dropdownGroupTitle->group as $dropdownItem)
 											<li class='fl-dropdown-list-item'>
-												<a class='fl-dropdown-link nav-link p-0 m-0' href='{{ $dropdownItem->link }}'>
+												<a class='fl-dropdown-link nav-link p-0 m-0' href='{{ url(app()->getLocale() . $dropdownItem->link) }}'>
 													{{ $dropdownItem->label }}
 												</a>
 											</li>
@@ -29,7 +29,7 @@
 				</li>
 			@else
 				<li class='nav-item p-0 m-0'>
-					<a href='{{ $menuItem->link }}' class='nav-link p-0 m-0' data-text='{{ $menuItem->label }}'>
+					<a href='{{ url(app()->getLocale() . $menuItem->link) }}' class='nav-link p-0 m-0' data-text='{{ $menuItem->label }}'>
 						{{ $menuItem->label }}
 						<div class='divider'></div>
 					</a>
