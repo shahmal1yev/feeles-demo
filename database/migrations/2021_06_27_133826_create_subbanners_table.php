@@ -16,12 +16,28 @@ class CreateSubbannersTable extends Migration
         Schema::create('subbanners', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('label', 255);
             $table->string('disk', 255);
             $table->string('source', 255);
             $table->string('path', 255);
             $table->string('name')->unique();
+
+            $table->dateTime('created')->useCurrent();
+            $table->dateTime('updated')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+        });
+
+        Schema::create('subbanner_translations', function(Blueprint $table){
+            $table->increments('id');
+
+            $table->unsignedInteger('subbanner_id');
+            $table->string('locale')->index();
+
+            $table->string('label', 255);
             $table->string('link', 255);
+
+            $table->unique([
+                'subbanner_id',
+                'locale'
+            ]);
 
             $table->dateTime('created')->useCurrent();
             $table->dateTime('updated')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

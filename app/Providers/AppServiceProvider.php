@@ -87,7 +87,7 @@ class AppServiceProvider extends ServiceProvider
             View::share(
                 'hashtags',
                 Hashtag::get()
-            )
+            );
         });
 
     }

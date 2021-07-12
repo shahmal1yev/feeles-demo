@@ -63,6 +63,34 @@ return [
             'path' => '/uploads/products/images/temp'
         ],
 
+        'banners' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/banners'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/banners',
+        ],
+
+        'banners_temp' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/banners/temp'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/banners/temp'
+        ],
+
+        'subbanners' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/subbanners'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/subbanners'
+        ],
+
+        'subbanners_temp' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/subbanners/temp'),
+            'url' => env('APP_URL').'/storage',
+            'path' => '/uploads/subbanners/temp'
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -90,7 +118,11 @@ return [
         // public_path('storage') => storage_path('app/public'),
         public_path('uploads') => storage_path('app/uploads'),
         public_path('uploads/products/images') => storage_path('app/uploads/products/images'),
-        public_path('uploads/products/images/temp') => storage_path('app/uploads/products/images/temp')
+        public_path('uploads/products/images/temp') => storage_path('app/uploads/products/images/temp'),
+        public_path('uploads/banners') => storage_path('app/uploads/banners'),
+        public_path('uploads/banners/temp') => storage_path('app/uploads/banners/temp'),
+        public_path('uploads/subbanners') => storage_path('app/uploads/subbanners'),
+        public_path('uploads/subbanners/temp') => storage_path('app/uploads/subbanners/temp')
     ],
 
 ];
