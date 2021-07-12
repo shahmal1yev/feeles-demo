@@ -20,25 +20,33 @@ class ProductDetailFill extends Seeder
         		'productId' => 1,
         		'colorId' => 1,
         		'sizeId' => 1,
-        		'stock' => 6
+        		'stock' => 6,
+				'classGroupId' => 1,
+				'fabricId' => 1,
         	],
         	[
         		'productId' => 1,
         		'colorId' => 2,
         		'sizeId' => 2,
-        		'stock' => 6
+        		'stock' => 6,
+				'classGroupId' => 1,
+				'fabricId' => 1,
         	],
         	[
         		'productId' => 2,
         		'colorId' => 1,
         		'sizeId' => 1,
-        		'stock' => 6
+        		'stock' => 6,
+				'classGroupId' => 2,
+				'fabricId' => 1,
         	],
         	[
         		'productId' => 2,
         		'colorId' => 2,
         		'sizeId' => 2,
-        		'stock' => 6
+        		'stock' => 6,
+				'classGroupId' => 2,
+				'fabricId' => 1,
         	]
         ];
 

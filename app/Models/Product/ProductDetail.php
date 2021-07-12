@@ -17,6 +17,8 @@ class ProductDetail extends Model
         'productId',
         'colorId',
         'sizeId',
+        'classGroupId',
+        'fabricId',
         'stock'
     ];
 

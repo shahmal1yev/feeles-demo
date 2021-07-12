@@ -19,6 +19,8 @@ class CreateProductDetailsTable extends Migration
             $table->unsignedInteger('productId');
             $table->unsignedInteger('colorId');
             $table->unsignedInteger('sizeId');
+            $table->unsignedInteger('classGroupId');
+            $table->unsignedInteger('fabricId');
 
             $table->unsignedInteger('stock');
 
@@ -28,6 +30,8 @@ class CreateProductDetailsTable extends Migration
             $table->foreign('productId')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('colorId')->references('id')->on('colors')->onDelete('cascade');
             $table->foreign('sizeId')->references('id')->on('sizes')->onDelete('cascade');
+            $table->foreign('classGroupId')->references('id')->on('class_groups')->onDelete('cascade');
+            $table->foreign('fabricId')->references('id')->on('fabrics')->onDelete('cascade');
         });
     }
 

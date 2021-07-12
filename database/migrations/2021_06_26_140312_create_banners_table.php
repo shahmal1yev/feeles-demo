@@ -13,6 +13,8 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+        
         Schema::create('banners', function (Blueprint $table) {
             $table->increments('id');
 

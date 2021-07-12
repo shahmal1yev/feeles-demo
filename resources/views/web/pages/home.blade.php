@@ -18,6 +18,7 @@
     <div class='row p-0 m-0'>
         <div class='col overflow-hidden'>
 
+            @include('web.template.layouts.subbanners')
             @include('web.template.layouts.filter-result')
 
         </div>

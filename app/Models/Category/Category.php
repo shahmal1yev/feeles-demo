@@ -5,6 +5,8 @@ namespace App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Product\Product;
+
 class Category extends Model
 {
     use HasFactory;
@@ -16,4 +18,9 @@ class Category extends Model
     public $timestamps = false;
 
     public $hidden = ['created', 'updated'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'categoryId', 'id');
+    }
 }

@@ -26,6 +26,8 @@ class CreateProductsTable extends Migration
 
             $table->dateTime('created')->useCurrent();
             $table->dateTime('updated')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+            $table->foreign('categoryId')->references('id')->on('categories')->onDelete('cascade');
         });
 
         Schema::create('product_translations', function(Blueprint $table) {

@@ -20,6 +20,12 @@ Array.prototype.remove = function(index) {
 
 (function() {
 
+	AOS.init();
+
+	$('.size-option > .content, .color-option').each(function() {
+		new bootstrap.Tooltip(this, {});
+	});
+
 	$('.product-card').each(function() {
 		new Constructor.ProductCard(this);
 	});

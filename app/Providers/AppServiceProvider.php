@@ -12,7 +12,10 @@ use App\Models\Subbanner\Subbanner;
 
 use App\Models\Size\Size;
 use App\Models\Color\Color;
+use App\Models\Fabric\Fabric;
+use App\Models\Hashtag\Hashtag;
 use App\Models\Category\Category;
+use App\Models\ClassGroup\ClassGroup;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -62,9 +65,29 @@ class AppServiceProvider extends ServiceProvider
             );
 
             View::share(
+                'fabrics',
+                Fabric::get()
+            );
+
+            View::share(
                 'categories',
                 Category::get()
             );
+
+            View::share(
+                'classGroups',
+                ClassGroup::get()
+            );
+
+            View::share(
+                'fabrics',
+                Fabric::get()
+            );
+
+            View::share(
+                'hashtags',
+                Hashtag::get()
+            )
         });
 
     }

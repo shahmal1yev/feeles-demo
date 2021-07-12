@@ -18,6 +18,7 @@ class DatabaseFill extends Seeder
         	SizeFill::class,
         	ColorFill::class,
         	CategoryFill::class,
+            ClassGroupFill::class,
         	ProductFill::class,
         	ProductImageFill::class,
         	ProductDetailFill::class,

@@ -21,6 +21,8 @@ class Product extends Model
     ];
 
     public $fillable = [
+        'fabricId',
+        'classGorupId',
         'categoryId',
         'price',
         'viewCount',
