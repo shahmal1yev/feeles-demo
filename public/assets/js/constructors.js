@@ -892,7 +892,7 @@ function CheckboxGroup(
 function ProductCard(card, obj = null) {
 	if ( obj ) {
 
-		this.card = $(tmpl('productCard', obj.data)).appendTo(obj.container);
+		this.card = $(tmpl('productCardTMPL', obj.data)).appendTo(obj.container);
 		this.productID = obj.data.id;
 
 	} else {

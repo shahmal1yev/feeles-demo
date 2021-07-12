@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::localized(function() {
+
+    Route::get('/', function (){
+        return view('web.pages.home');
+    })->name('web.index');
 
     Route::prefix('admin')->group(function() {
 
@@ -51,29 +51,29 @@ Route::localized(function() {
             Route::get('/', 'App\Http\Controllers\Product\ProductController@index')
             ->name('admin.products.index');
     
-            Route::get('/new', 'Product\ProductController@new')
+            Route::get('/new', 'App\Http\Controllers\Product\ProductController@new')
             ->name('admin.products.new');
             
-            Route::get('/edit/{product}', 'Product\ProductController@edit')
+            Route::get('/edit/{product}', 'App\Http\Controllers\Product\ProductController@edit')
             ->name('admin.products.edit');
     
-            Route::get('/stock', 'Product\ProductController@details')
+            Route::get('/stock', 'App\Http\Controllers\Product\ProductController@details')
             ->name('admin.products.stock');
             
-            Route::post('/store', 'Product\ProductController@store')
+            Route::post('/store', 'App\Http\Controllers\Product\ProductController@store')
             ->name('admin.products.store');
     
-            Route::post('/update/{product}', 'Product\ProductController@update')
+            Route::post('/update/{product}', 'App\Http\Controllers\Product\ProductController@update')
             ->name('admin.products.update');
     
-            Route::post('/remove/{product}', 'Product\ProductController@remove')
+            Route::post('/remove/{product}', 'App\Http\Controllers\Product\ProductController@remove')
             ->name('admin.products.remove');
     
             Route::prefix('images')->group(function() {
-                Route::post('store', 'Product\ProductImageController@store')
+                Route::post('store', 'App\Http\Controllers\Product\ProductImageController@store')
                 ->name('admin.products.images.store');
     
-                Route::post('remove/{image:name}', 'Product\ProductImageController@remove')
+                Route::post('remove/{image:name}', 'App\Http\Controllers\Product\ProductImageController@remove')
                 ->name('admin.products.images.remove');
             });
         });

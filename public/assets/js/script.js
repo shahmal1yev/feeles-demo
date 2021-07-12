@@ -16,16 +16,6 @@ Array.prototype.remove = function(index) {
 	}
 
 	new Constructor.Filter();
-
-	// [
-	// 	['minPrice', '#filterMinPrice', Constructor.NumberInput, [0, null, 10000]],
-	// 	['maxPrice', '#filterMaxPrice', Constructor.NumberInput, [0, null, 10000]],
-	// 	['color', '#filterColorChooser', Constructor.ColorChooser, 'active', ['1', '2', '3', '4']],
-	// 	['size', '#filterSizeChooser', Constructor.SizeChooser, 'active', ['1', '3', '5']],
-	// 	['category', '#filterCategoryChooser', Constructor.CheckboxGroup, 'active'],
-	// 	['class', '#filterClassChooser', Constructor.CheckboxGroup, 'active', ['1', '2', '3']],
-	// 	['fabric', '#filterFabricChooser', Constructor.CheckboxGroup, 'active']
-	// ]
 })();
 
 (function() {

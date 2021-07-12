@@ -47,3 +47,8 @@ Route::prefix('admin')->group(function() {
     }); 
     
 });
+
+Route::get('/menu', function() {
+    app()->setLocale('az');
+    return response(\App\Models\Menu\MenuItem::with('titles.group')->get());
+});
