@@ -45,28 +45,8 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('web.pages.home', function() {
             View::share(
-                'banners', 
+                'banners',
                 Banner::get()
-            );
-
-            View::share(
-                'subbanners',
-                Subbanner::get()
-            );
-
-            View::share(
-                'sizes',
-                Size::get()
-            );
-
-            View::share(
-                'colors',
-                Color::get()
-            );
-
-            View::share(
-                'fabrics',
-                Fabric::get()
             );
 
             View::share(
@@ -80,6 +60,11 @@ class AppServiceProvider extends ServiceProvider
             );
 
             View::share(
+                'colors',
+                Color::get()
+            );
+
+            View::share(
                 'fabrics',
                 Fabric::get()
             );
@@ -87,6 +72,16 @@ class AppServiceProvider extends ServiceProvider
             View::share(
                 'hashtags',
                 Hashtag::get()
+            );
+
+            View::share(
+                'sizes',
+                Size::get()
+            );
+
+            View::share(
+                'subbanners',
+                Subbanner::get()
             );
         });
 

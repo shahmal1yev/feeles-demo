@@ -19,6 +19,7 @@
         <div class='col overflow-hidden'>
 
             @include('web.template.layouts.subbanners')
+            @include('web.template.layouts.hashtags')
             @include('web.template.layouts.filter-result')
 
         </div>

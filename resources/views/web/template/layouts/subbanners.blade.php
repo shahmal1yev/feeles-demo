@@ -1,6 +1,6 @@
 @if($subbanners->count())
 
-    <section class='bg-white py-4 p-0 m-0' data-aos='fade-up'>
+    <section class='bg-white p-0 mt-4 m-0' data-aos='fade-up'>
         <div class='row p-0 m-0'>
             
             @foreach($subbanners as $subbanner)
@@ -19,6 +19,13 @@
                                 <span class='label'>
                                     {{ $subbanner->label }}
                                 </span>
+                                <hr class='divider' />
+                                <a 
+                                    class='link btn btn-outline-dark-blue animating-btn action serious'
+                                    href='{{ url(app()->getLocale(), $subbanner->link) }}'
+                                >
+                                    __("Show")
+                                </a>
                             </div>
                         </div>
 

@@ -1,4 +1,4 @@
-<section id='filterResultSection'>
+<section class='mt-4' id='filterResultSection'>
 	<h4 id='filterHeader' class="d-none section-header">Axtarış nəticələri</h4>
 
 	<div id='filterResult' class='row m-0'>
