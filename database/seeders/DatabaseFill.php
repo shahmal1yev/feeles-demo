@@ -18,10 +18,14 @@ class DatabaseFill extends Seeder
         	SizeFill::class,
         	ColorFill::class,
         	CategoryFill::class,
+            FabricFill::class,
             ClassGroupFill::class,
         	ProductFill::class,
         	ProductImageFill::class,
         	ProductDetailFill::class,
+            MenuItemFill::class,
+            DropdownGroupTitleFill::class,
+            DropdownMenuItemFill::class
         ]);
     }
 }

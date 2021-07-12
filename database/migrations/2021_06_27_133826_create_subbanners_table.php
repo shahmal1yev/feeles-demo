@@ -20,6 +20,7 @@ class CreateSubbannersTable extends Migration
             $table->string('source', 255);
             $table->string('path', 255);
             $table->string('name')->unique();
+            $table->string('link', 255);
 
             $table->dateTime('created')->useCurrent();
             $table->dateTime('updated')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
@@ -32,7 +33,6 @@ class CreateSubbannersTable extends Migration
             $table->string('locale')->index();
 
             $table->string('label', 255);
-            $table->string('link', 255);
 
             $table->unique([
                 'subbanner_id',

@@ -11,4 +11,8 @@ class MenuItemTranslation extends Model
 
     public $table = 'menu_item_translations';
     public $timestamps = false;
+
+    public $fillable = [
+        'label'
+    ];
 }

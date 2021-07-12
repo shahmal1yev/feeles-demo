@@ -17,6 +17,7 @@ class CreateMenuItemsTable extends Migration
             $table->increments('id');
 
             $table->boolean('dropdown')->default(false);
+            $table->string('link', 255);
 
             $table->dateTime('created')->useCurrent();
             $table->dateTime('updated')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
@@ -29,7 +30,6 @@ class CreateMenuItemsTable extends Migration
             $table->string('locale')->index();
 
             $table->string('label', 255);
-            $table->string('link', 255);
 
             $table->unique([
                 'menu_item_id',

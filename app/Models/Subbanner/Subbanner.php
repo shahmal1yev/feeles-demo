@@ -14,7 +14,6 @@ class Subbanner extends Model
     public $timestamps = false;
 
     public $translatedAttributes = [
-        'link',
         'label'
     ];
 
@@ -22,7 +21,8 @@ class Subbanner extends Model
         'disk',
         'source',
         'path',
-        'name'
+        'name',
+        'link'
     ];
 
     public $hidden = [

@@ -17,12 +17,12 @@ class MenuItem extends Model
     public $timestamps = false;
 
     public $translatedAttributes = [
-        'label',
-        'link'
+        'label'
     ];
 
     public $fillable = [
-        'dropdown'
+        'dropdown',
+        'link'
     ];
 
     public function dropdownItems()

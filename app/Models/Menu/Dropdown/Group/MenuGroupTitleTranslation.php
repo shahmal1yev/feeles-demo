@@ -11,4 +11,8 @@ class MenuGroupTitleTranslation extends Model
 
     public $table = 'dropdown_group_title_translations';
     public $timestamps = false;
+
+    public $fillable = [
+        'title'
+    ];
 }

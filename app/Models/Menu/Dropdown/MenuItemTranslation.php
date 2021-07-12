@@ -13,8 +13,7 @@ class MenuItemTranslation extends Model
     public $timestamps = false;
 
     public $fillable = [
-        'label',
-        'link'
+        'label'
     ];
 
     public $hidden = [

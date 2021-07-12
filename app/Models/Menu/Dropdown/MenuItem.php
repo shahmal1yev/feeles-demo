@@ -17,13 +17,13 @@ class MenuItem extends Model
     public $timestamps = false;
 
     public $translatedAttributes = [
-        'label',
-        'link'
+        'label'
     ];
 
     public $fillable = [
         'title_id',
-        'menu_item_id'
+        'menu_item_id',        
+        'link'
     ];
 
     public $hidden = [
