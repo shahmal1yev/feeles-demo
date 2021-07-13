@@ -43,6 +43,33 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
+        View::composer('admin.pages.stock.product-stock', function() {
+            View::share(
+                'categories',
+                Category::get()
+            );
+
+            View::share(
+                'classGroups',
+                ClassGroup::get()
+            );
+
+            View::share(
+                'colors',
+                Color::get()
+            );
+
+            View::share(
+                'fabrics',
+                Fabric::get()
+            );
+
+            View::share(
+                'sizes',
+                Size::get()
+            );
+        });
+
         View::composer('web.pages.home', function() {
             View::share(
                 'banners',

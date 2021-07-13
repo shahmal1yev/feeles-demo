@@ -77,11 +77,15 @@
                                         </div>
                                         <div class='card-footer'>
                                             <div class='text-right'>
-                                                <a 
+                                                <a
+                                                    class='stock-product-btn btn btn-sm btn-primary plus-icon p-2'
+                                                    href='{{ route('admin.products.stock', ['product' => $product->id]) }}'
+                                                >
+                                                </a>
+                                                <a
                                                     class='edit-product-btn btn btn-sm btn-primary edit-icon p-2' 
                                                     href='{{ route('admin.products.edit', ['product' => $product->id]) }}'>
                                                 </a>
-
                                                 <a
                                                     class='delete-product-btn btn btn-sm btn-danger trash-icon p-2' 
                                                     href='{{ route('admin.products.remove', ['product' => $product->id]) }}'>

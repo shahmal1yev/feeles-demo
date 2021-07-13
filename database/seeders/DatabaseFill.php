@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\Schema;
+
 class DatabaseFill extends Seeder
 {
     /**
@@ -13,6 +15,8 @@ class DatabaseFill extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+
         $this->call([
             HashtagFill::class,
         	SizeFill::class,
@@ -27,5 +31,7 @@ class DatabaseFill extends Seeder
             DropdownGroupTitleFill::class,
             DropdownMenuItemFill::class
         ]);
+
+        Schema::enableForeignKeyConstraints();
     }
 }

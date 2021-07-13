@@ -5024,6 +5024,111 @@
 .edit-icon:before {
   content: "\f044";
 }
+.plus-icon {
+  font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.plus-icon.fa-pull-left {
+  margin-right: 0.3em;
+}
+.plus-icon.fa-pull-right {
+  margin-left: 0.3em;
+}
+.plus-icon:before {
+  content: "\f067";
+}
+.plus-circle-icon {
+  font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.plus-circle-icon.fa-pull-left {
+  margin-right: 0.3em;
+}
+.plus-circle-icon.fa-pull-right {
+  margin-left: 0.3em;
+}
+.plus-circle-icon:before {
+  content: "\f055";
+}
+.save-icon {
+  font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.save-icon.fa-pull-left {
+  margin-right: 0.3em;
+}
+.save-icon.fa-pull-right {
+  margin-left: 0.3em;
+}
+.save-icon:before {
+  content: "\f0c7";
+}
+.share-alt-icon {
+  font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.share-alt-icon.fa-pull-left {
+  margin-right: 0.3em;
+}
+.share-alt-icon.fa-pull-right {
+  margin-left: 0.3em;
+}
+.share-alt-icon:before {
+  content: "\f1e0";
+}
+.share-alt-square-icon {
+  font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.share-alt-square-icon.fa-pull-left {
+  margin-right: 0.3em;
+}
+.share-alt-square-icon.fa-pull-right {
+  margin-left: 0.3em;
+}
+.share-alt-square-icon:before {
+  content: "\f1e1";
+}
 .manat-icon:after {
   content: url('/assets/svg/manat.svg');
 }

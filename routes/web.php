@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Banner\BannerController;
 use App\Http\Controllers\Subbanner\SubbannerController;
 use App\Http\Controllers\Hashtag\HashtagController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductImageController;
+use App\Http\Controllers\Product\ProductDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,65 +28,74 @@ Route::localized(function () {
 
     Route::prefix('admin')->group(function() {
 
-        Route::get('/', 'AdminController@index');
+        Route::get('/', '\App\Http\Controllers\Admin\AdminController@index');
     
         Route::prefix('banners')->group(function() {
-            Route::get('/', 'BannerController@index')
+            Route::get('/', '\App\Http\Controllers\Banner\BannerController@index')
             ->name('admin.banners.index');
             
-            Route::get('/new', 'BannerController@new')
+            Route::get('/new', '\App\Http\Controllers\Banner\BannerController@new')
             ->name('admin.banners.new');
         });
     
         Route::prefix('subbanners')->group(function() {
-            Route::get('/', 'SubbannerController@index')
+            Route::get('/', '\App\Http\Controllers\Subbanner\SubbannerController@index')
             ->name('admin.subbanners.index');
     
-            Route::get('/new', 'SubbannerController@new')
+            Route::get('/new', '\App\Http\Controllers\Subbanner\SubbannerController@new')
             ->name('admin.subbanners.new');
         });
     
         Route::prefix('hashtags')->group(function() {
-            Route::get('/', 'HashtagController@index')
+            Route::get('/', '\App\Http\Controllers\Hashtag\HashtagController@index')
             ->name('admin.hashtags.index');
     
-            Route::get('/new', 'HashtagController@new')
+            Route::get('/new', '\App\Http\Controllers\Hashtag\HashtagController@new')
             ->name('admin.hashtags.new');
         });
     
         Route::prefix('products')->group(function( ){
-            Route::get('/', 'ProductController@index')
+            Route::get('/', '\App\Http\Controllers\Product\ProductController@index')
             ->name('admin.products.index');
     
-            Route::get('/new', 'ProductController@new')
+            Route::get('/new', '\App\Http\Controllers\Product\ProductController@new')
             ->name('admin.products.new');
             
-            Route::get('/edit/{product}', 'ProductController@edit')
+            Route::get('/edit/{product}', '\App\Http\Controllers\Product\ProductController@edit')
             ->name('admin.products.edit');
-    
-            Route::get('/stock', 'ProductController@details')
-            ->name('admin.products.stock');
-            
-            Route::post('/store', 'ProductController@store')
+     
+            Route::post('/store', '\App\Http\Controllers\Product\ProductController@store')
             ->name('admin.products.store');
     
-            Route::post('/update/{product}', 'ProductController@update')
+            Route::post('/update/{product}', '\App\Http\Controllers\Product\ProductController@update')
             ->name('admin.products.update');
     
-            Route::post('/remove/{product}', 'ProductController@remove')
+            Route::post('/remove/{product}', '\App\Http\Controllers\Product\ProductController@remove')
             ->name('admin.products.remove');
     
             Route::prefix('images')->group(function() {
-                Route::post('store', 'ProductImageController@store')
+                Route::post('store', '\App\Http\Controllers\Product\ProductImageController@store')
                 ->name('admin.products.images.store');
     
-                Route::post('remove/{image:name}', 'ProductImageController@remove')
+                Route::post('remove/{image:name}', '\App\Http\Controllers\Product\ProductImageController@remove')
                 ->name('admin.products.images.remove');
             });
-        });
-    
-    });
 
+            Route::prefix('stock')->group(function() {
+                Route::get('/{product}', '\App\Http\Controllers\Product\ProductDetailController@product')
+                ->name('admin.products.stock');
+            });
+        });
+    });
+});
+
+Route::prefix('admin')->group(function() {
+    Route::prefix('products')->group(function() {
+        Route::prefix('stock')->group(function() {
+            Route::get('/update/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@update');
+            Route::get('/remove/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@remove');
+        });
+    });
 });
 
 Route::fallback(\CodeZero\LocalizedRoutes\Controller\FallbackController::class)

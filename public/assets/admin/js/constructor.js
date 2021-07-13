@@ -1047,6 +1047,12 @@ function EditProduct(form)
     }
 }
 
+function ProductDetail(row) {
+    this.availableRows = $('.product-detail-row');
+
+    
+}
+
 export {
     Banners,
     Hashtags,

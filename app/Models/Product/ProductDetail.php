@@ -41,4 +41,14 @@ class ProductDetail extends Model
     {
         return $this->hasOne(Size::class, 'id', 'sizeId');
     }
+
+    public function classGroup()
+    {
+        return $this->hasOne(ClassGroup::class, 'id', 'classGroupId');
+    }
+
+    public function fabric()
+    {
+        return $this->hasOne(Fabric::class, 'id', 'fabricId');
+    }
 }
