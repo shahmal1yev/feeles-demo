@@ -21,6 +21,7 @@ class CreateProductDetailsTable extends Migration
             $table->unsignedInteger('sizeId');
             $table->unsignedInteger('classGroupId');
             $table->unsignedInteger('fabricId');
+            $table->unsignedInteger('discount')->default(0);
 
             $table->unsignedInteger('stock');
 
