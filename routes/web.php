@@ -82,8 +82,11 @@ Route::localized(function () {
             });
 
             Route::prefix('stock')->group(function() {
-                Route::get('/{product}', '\App\Http\Controllers\Product\ProductDetailController@product')
+                Route::get('/{product}', '\App\Http\Controllers\Product\ProductDetailController@details')
                 ->name('admin.products.stock');
+
+                Route::get('/new/{product}', '\App\Http\Controllers\Product\ProductDetailController@new')
+                ->name('admin.products.stock.new');
             });
         });
     });
@@ -92,6 +95,7 @@ Route::localized(function () {
 Route::prefix('admin')->group(function() {
     Route::prefix('products')->group(function() {
         Route::prefix('stock')->group(function() {
+            Route::post('/store/{product}', '\App\Http\Controllers\Product\ProductDetailController@store');
             Route::post('/update/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@update');
             Route::post('/remove/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@remove');
         });

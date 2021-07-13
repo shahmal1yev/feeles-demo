@@ -14,7 +14,7 @@ use App\Models\Product\Product;
 
 class ProductDetailController extends Controller
 {
-    public function product(        
+    public function details(        
         Product $product
     )
     {
@@ -106,5 +106,80 @@ class ProductDetailController extends Controller
         }
 
         return back()->withErrors('message', $message);
+    }
+
+    public function new(
+        Product $product
+    )
+    {
+        $requestAttributes = ProductDetailStoreRequest::requestAttributes();
+        
+        return view('admin.pages.stock.new', compact(
+            'product',
+            'requestAttributes'
+        ));
+    }
+
+    public function store(
+        ProductDetailStoreRequest $request,
+        Product $product
+    )
+    {
+        $attributes = $request::requestAttributes();
+        $message = [
+            'success' => __("message.savedData", [
+                'label' => __('Product detail')
+            ]),
+            'error' => __("message.error")
+        ];
+
+        $detail = ProductDetail::firstWhere([
+            'productId' => $product->id,
+            'sizeId' => $request->{$attributes['sizeID']},
+            'colorId' => $request->{$attributes['colorID']},
+            'fabricId' => $request->{$attributes['fabricID']},
+            'classGroupId' => $request->{$attributes['classID']}
+        ]);
+
+        if ($detail)
+        {
+            $result = $detail->update([
+                'stock' => $request->{$attributes['stock']},
+                'discount' => $request->{$attributes['discount']}
+            ]);
+        }
+        else
+        {
+            $result = ProductDetail::create([
+                'productId' => $product->id,
+                'sizeId' => $request->{$attributes['sizeID']},
+                'colorId' => $request->{$attributes['colorID']},
+                'fabricId' => $request->{$attributes['fabricID']},
+                'classGroupId' => $request->{$attributes['classID']},
+                'stock' => $request->{$attributes['stock']},
+                'discount' => $request->{$attributes['discount']},
+            ]);
+        }
+
+        if ($request->expectsJson())
+        {
+            if ($result)
+            {
+                return response([
+                    'message' => $message['success']
+                ]);
+            }
+
+            return response([
+                'message' => $message['error']
+            ], 500);
+        }
+
+        if ($result)
+        {
+            return back()->with('message', $message['success']);
+        }
+
+        return back()->withErrors('message', $message['error']);
     }
 }

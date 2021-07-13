@@ -606,9 +606,9 @@ function ProductCard(item)
     })
 }
 
-function NewProduct(form)
+function NewProduct()
 {
-    this.form = $(form);
+    this.form = $('#newProductForm');
 
     if (!this.form.length)
         return;
@@ -806,9 +806,9 @@ function NewProduct(form)
     });
 }
 
-function EditProduct(form)
+function EditProduct()
 {
-    this.form = $(form);
+    this.form = $('#editProductForm');
 
     if (!this.form.length)
         return;
@@ -1047,7 +1047,7 @@ function EditProduct(form)
     }
 }
 
-function ProductDetail() {
+function EditProductDetail() {
     this.availableRows = $('.product-detail-row');
 
     if (!this.availableRows.length)
@@ -1174,6 +1174,89 @@ function ProductDetail() {
     }
 }
 
+function NewProductDetail() {
+    this.form = $('#newProductDetailForm');
+    this.productID = this.form.data().productId;
+
+    if (!this.form.length)
+        return false;
+
+    this.inputs = this.form.find('[name]');
+    this.saveBtn = this.form.find('.submit-button');
+
+    this.saveBtn.click(e => {
+        e.preventDefault();
+
+        if (this.form[0].checkValidity()) {
+
+            this.form
+            .find('input, select, button')
+            .prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: `/admin/products/stock/store/${this.productID}`,
+                data: (() => {
+                    let data = new FormData();
+
+                    for(let input of this.inputs) {
+                        data.append(input.name, input.value)
+                    }
+
+                    return data;
+                })()
+            })
+            .then(res => {
+                Helper.showToast({
+                    text: res.data.message
+                });
+
+                console.log(res);
+
+                // setTimeout(() => window.reload(), 1000);
+            })
+            .catch(err => {
+                try {
+                    switch(err.response.status) {
+                        case 422:
+                            for(let errorItem of Object.entries(err.response.data.errors)) {
+                                let [fieldName, errors] = errorItem;
+    
+                                let relationFieldErrReporter = $(`[data-error-reporter="${fieldName}"]`);
+                                console.log(fieldName);
+    
+                                relationFieldErrReporter.text(errors.join(' '));
+                            }
+                        break;
+                        default:
+                            Helper.showToast({
+                                text: 'Xəta baş verdi',
+                                backgroundColor: '#dc3545'
+                            });
+                        break;
+                    }
+                } catch(e) {
+                    Helper.showToast({
+                        text: 'Xəta baş verdi',
+                        backgroundColor: '#dc3545'
+                    });
+                }
+    
+                console.warn(err, err.response);
+            })
+            .finally(() => {
+                this.form
+                .find('input, select, button')
+                .prop('disabled', false);
+            });
+
+        }
+
+        this.form.addClass('was-validated');
+        this.inputs.prop('disabled', false);
+    });
+}
+
 export {
     Banners,
     Hashtags,
@@ -1181,5 +1264,6 @@ export {
     ProductCard,
     NewProduct,
     EditProduct,
-    ProductDetail
+    EditProductDetail,
+    NewProductDetail
 }

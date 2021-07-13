@@ -10,7 +10,6 @@ class StoreRequest extends FormRequest
     public static function requestAttributes()
     {
         return [
-            'productID' => 'productID',
             'colorID' => 'colorID',
             'sizeID' => 'sizeID',
             'classID' => 'classID',
@@ -24,7 +23,6 @@ class StoreRequest extends FormRequest
     {
         $attributes = self::requestAttributes();
         return [
-            $attributes['productID'] => __('product'),
             $attributes['colorID'] => __('color'),
             $attributes['sizeID'] => __('size'),
             $attributes['classID'] => __('class'),
@@ -54,7 +52,6 @@ class StoreRequest extends FormRequest
         $attributes = self::requestAttributes();
 
         return [
-            $attributes['productID'] => 'required|exists:products,id',
             $attributes['colorID'] => 'required|exists:colors,id',
             $attributes['sizeID'] => 'required|exists:sizes,id',
             $attributes['classID'] => 'required|exists:class_groups,id',
@@ -69,68 +66,61 @@ class StoreRequest extends FormRequest
         $attributes = self::requestAttributes();
         $attributeLabels = self::requestAttributeLabels();
         return [
-            "$attributes[productID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[productID]]"
-            ]),
-            "$attributes[productID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[productID]]"
-            ]),
-
             "$attributes[colorID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[colorID]]"
+                "attribute" => $attributeLabels[$attributes['colorID']]
             ]),
             "$attributes[colorID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[colorID]]"
+                "attribute" => $attributeLabels[$attributes['colorID']]
             ]),
 
             "$attributes[sizeID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[sizeID]]"
+                "attribute" => $attributeLabels[$attributes['sizeID']]
             ]),
             "$attributes[sizeID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[sizeID]]"
+                "attribute" => $attributeLabels[$attributes['sizeID']]
             ]),
 
             "$attributes[classID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[classID]]"
+                "attribute" => $attributeLabels[$attributes['classID']]
             ]),
             "$attributes[classID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[classID]]"
+                "attribute" => $attributeLabels[$attributes['classID']]
             ]),
 
             "$attributes[fabricID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[fabricID]]"
+                "attribute" => $attributeLabels[$attributes['fabricID']]
             ]),
             "$attributes[fabricID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[fabricID]]"
+                "attribute" => $attributeLabels[$attributes['fabricID']]
             ]),
 
             "$attributes[stock].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[stock]]"
+                "attribute" => $attributeLabels[$attributes['stock']]
             ]),
             "$attributes[stock].integer" => __("validation.integer", [
                 'attribute' => $attributeLabels[$attributes['stock']]
             ]),
             "$attributes[stock].min" => __("validation.min.numeric", [
-                "attribute" => "$attributeLabels[$attribute[stock]]",
+                "attribute" => $attributeLabels[$attributes['stock']],
                 "min" => 0
             ]),
             "$attributes[stock].max" => __("validation.max.numeric", [
-                "attribute" => "$attributeLabels[$attribute[stock]]",
+                "attribute" => $attributeLabels[$attributes['stock']],
                 "max" => 1000000
             ]),
 
             "$attributes[discount].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute['discount']]"
+                "attribute" => $attributeLabels[$attributes['discount']]
             ]),
             "$attributes[discount].integer" => __("validation.integer", [
-                'attribute' => "$attributeLabels[$attributes['discount']]"
+                'attribute' => $attributeLabels[$attributes['discount']]
             ]),
             "$attributes[discount].min" => __("validation.min.numeric", [
-                "attribute" => "$attributeLabels[$attribute['discount']]",
+                "attribute" => $attributeLabels[$attributes['discount']],
                 "min" => 0
             ]),
             "$attributes[discount].max" => __("validation.max.numeric", [
-                "attribute" => "$attributeLabels[$attribute['discount']]",
+                "attribute" => $attributeLabels[$attributes['discount']],
                 "max" => 100
             ]),
         ];

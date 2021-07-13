@@ -6,9 +6,10 @@ import '../../js/reboot.js';
 new Constructor.Banners();
 new Constructor.Hashtags();
 new Constructor.Subbanners();
-new Constructor.NewProduct(Helper.getElement('newProductForm'));
-new Constructor.EditProduct(Helper.getElement('editProductForm'));
-new Constructor.ProductDetail();
+new Constructor.NewProduct();
+new Constructor.EditProduct();
+new Constructor.EditProductDetail();
+new Constructor.NewProductDetail();
 
 (function() {
 

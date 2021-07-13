@@ -43,7 +43,10 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
-        View::composer('admin.pages.stock.product-stock', function() {
+        View::composer([
+            'admin.pages.stock.product-stock',
+            'admin.pages.stock.new'
+        ], function() {
             View::share(
                 'categories',
                 Category::get()
