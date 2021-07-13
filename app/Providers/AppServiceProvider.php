@@ -111,6 +111,5 @@ class AppServiceProvider extends ServiceProvider
                 Subbanner::get()
             );
         });
-
     }
 }
