@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Banner\BannerController;
+use App\Http\Controllers\Subbanner\SubbannerController;
+use App\Http\Controllers\Hashtag\HashtagController;
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Product\ProductImageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,59 +28,59 @@ Route::localized(function () {
 
     Route::prefix('admin')->group(function() {
 
-        Route::get('/', 'Admin\AdminController@index');
+        Route::get('/', 'AdminController@index');
     
         Route::prefix('banners')->group(function() {
-            Route::get('/', 'Banner\BannerController@index')
+            Route::get('/', 'BannerController@index')
             ->name('admin.banners.index');
             
-            Route::get('/new', 'Banner\BannerController@new')
+            Route::get('/new', 'BannerController@new')
             ->name('admin.banners.new');
         });
     
         Route::prefix('subbanners')->group(function() {
-            Route::get('/', 'Subbanner\SubbannerController@index')
+            Route::get('/', 'SubbannerController@index')
             ->name('admin.subbanners.index');
     
-            Route::get('/new', 'Subbanner\SubbannerController@new')
+            Route::get('/new', 'SubbannerController@new')
             ->name('admin.subbanners.new');
         });
     
         Route::prefix('hashtags')->group(function() {
-            Route::get('/', 'Hashtag\HashtagController@index')
+            Route::get('/', 'HashtagController@index')
             ->name('admin.hashtags.index');
     
-            Route::get('/new', 'Hashtag\HashtagController@new')
+            Route::get('/new', 'HashtagController@new')
             ->name('admin.hashtags.new');
         });
     
         Route::prefix('products')->group(function( ){
-            Route::get('/', 'App\Http\Controllers\Product\ProductController@index')
+            Route::get('/', 'ProductController@index')
             ->name('admin.products.index');
     
-            Route::get('/new', 'App\Http\Controllers\Product\ProductController@new')
+            Route::get('/new', 'ProductController@new')
             ->name('admin.products.new');
             
-            Route::get('/edit/{product}', 'App\Http\Controllers\Product\ProductController@edit')
+            Route::get('/edit/{product}', 'ProductController@edit')
             ->name('admin.products.edit');
     
-            Route::get('/stock', 'App\Http\Controllers\Product\ProductController@details')
+            Route::get('/stock', 'ProductController@details')
             ->name('admin.products.stock');
             
-            Route::post('/store', 'App\Http\Controllers\Product\ProductController@store')
+            Route::post('/store', 'ProductController@store')
             ->name('admin.products.store');
     
-            Route::post('/update/{product}', 'App\Http\Controllers\Product\ProductController@update')
+            Route::post('/update/{product}', 'ProductController@update')
             ->name('admin.products.update');
     
-            Route::post('/remove/{product}', 'App\Http\Controllers\Product\ProductController@remove')
+            Route::post('/remove/{product}', 'ProductController@remove')
             ->name('admin.products.remove');
     
             Route::prefix('images')->group(function() {
-                Route::post('store', 'App\Http\Controllers\Product\ProductImageController@store')
+                Route::post('store', 'ProductImageController@store')
                 ->name('admin.products.images.store');
     
-                Route::post('remove/{image:name}', 'App\Http\Controllers\Product\ProductImageController@remove')
+                Route::post('remove/{image:name}', 'ProductImageController@remove')
                 ->name('admin.products.images.remove');
             });
         });
