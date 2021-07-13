@@ -7,8 +7,8 @@ return [
      */
     'supported-locales' => [
         'az',
-        'ru',
-        'en'
+        'en',
+        'ru'
     ],
 
     /**

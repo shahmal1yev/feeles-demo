@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::localized(function() {
-
+Route::localized(function () {
+    
     Route::get('/', function (){
         return view('web.pages.home');
     })->name('web.index');
@@ -78,9 +78,9 @@ Route::localized(function() {
             });
         });
     
-    });    
+    });
 
 });
 
 Route::fallback(\CodeZero\LocalizedRoutes\Controller\FallbackController::class)
-->middleware(\CodeZero\LocalizedRoutes\Middleware\SetLocale::class);
+    ->middleware(\CodeZero\LocalizedRoutes\Middleware\SetLocale::class);
