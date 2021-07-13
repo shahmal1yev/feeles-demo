@@ -13,7 +13,8 @@ class UpdateRequest extends FormRequest
             'sizeID' => 'sizeID',
             'classID' => 'classID',
             'fabricID' => 'fabricID',
-            'stock' => 'stock'
+            'stock' => 'stock',
+            'discount' => 'discount'
         ];
     }
 
@@ -25,7 +26,8 @@ class UpdateRequest extends FormRequest
             $attributes['sizeID'] => __('size'),
             $attributes['classID'] => __('class'),
             $attributes['fabricID'] => __('fabric'),
-            $attributes['stock'] => __('stock')
+            $attributes['stock'] => __('stock'),
+            $attributes['discount'] => __('discount')
         ];
     }
 
@@ -54,6 +56,7 @@ class UpdateRequest extends FormRequest
             $attributes['classID'] => 'required|exists:class_groups,id',
             $attributes['fabricID'] => 'required|exists:fabrics,id',
             $attributes['stock'] => 'required|integer|min:0|max:1000000',
+            $attributes['discount'] => 'required|integer|min:0|max:100',
         ];
     }
 
@@ -93,6 +96,9 @@ class UpdateRequest extends FormRequest
             "$attributes[stock].required" => __("validation.required", [
                 "attribute" => $attributeLabels[$attributes['stock']]
             ]),
+            "$attributes[stock].integer" => __("validation.integer", [
+                'attribute' => $attributeLabels[$attributes['stock']]
+            ]),
             "$attributes[stock].min" => __("validation.min.numeric", [
                 "attribute" => $attributeLabels[$attributes['stock']],
                 "min" => 0
@@ -100,6 +106,21 @@ class UpdateRequest extends FormRequest
             "$attributes[stock].max" => __("validation.max.numeric", [
                 "attribute" => $attributeLabels[$attributes['stock']],
                 "min" => 1000000
+            ]),
+
+            "$attributes[discount].required" => __("validation.required", [
+                "attribute" => "$attributeLabels[$attribute[discount]]"
+            ]),
+            "$attributes[discount].integer" => __("validation.integer", [
+                'attribute' => $attributeLabels[$attributes['stock']]
+            ]),
+            "$attributes[discount].min" => __("validation.min.numeric", [
+                "attribute" => "$attributeLabels[$attribute[discount]]",
+                "min" => 0
+            ]),
+            "$attributes[discount].max" => __("validation.max.numeric", [
+                "attribute" => "$attributeLabels[$attribute[discount]]",
+                "max" => 100
             ]),
         ];
     }
