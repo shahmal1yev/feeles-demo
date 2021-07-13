@@ -53,7 +53,7 @@ class UpdateRequest extends FormRequest
             $attributes['sizeID'] => 'required|exists:sizes,id',
             $attributes['classID'] => 'required|exists:class_groups,id',
             $attributes['fabricID'] => 'required|exists:fabrics,id',
-            $attributes['stock'] => 'required|integer|min:0|max:1000000000',
+            $attributes['stock'] => 'required|integer|min:0|max:1000000',
         ];
     }
 
@@ -63,43 +63,43 @@ class UpdateRequest extends FormRequest
         $attributeLabels = self::requestAttributeLabels();
         return [
             "$attributes[colorID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[colorID]]"
+                "attribute" => $attributeLabels[$attributes['colorID']]
             ]),
             "$attributes[colorID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[colorID]]"
+                "attribute" => $attributeLabels[$attributes['colorID']]
             ]),
 
             "$attributes[sizeID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[sizeID]]"
+                "attribute" => $attributeLabels[$attributes['sizeID']]
             ]),
             "$attributes[sizeID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[sizeID]]"
+                "attribute" => $attributeLabels[$attributes['sizeID']]
             ]),
 
             "$attributes[classID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[classID]]"
+                "attribute" => $attributeLabels[$attributes['classID']]
             ]),
             "$attributes[classID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[classID]]"
+                "attribute" => $attributeLabels[$attributes['classID']]
             ]),
 
             "$attributes[fabricID].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[fabricID]]"
+                "attribute" => $attributeLabels[$attributes['fabricID']]
             ]),
             "$attributes[fabricID].exists" => __("validation.exists", [
-                "attribute" => "$attributeLabels[$attribute[fabricID]]"
+                "attribute" => $attributeLabels[$attributes['fabricID']]
             ]),
 
             "$attributes[stock].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[stock]]"
+                "attribute" => $attributeLabels[$attributes['stock']]
             ]),
             "$attributes[stock].min" => __("validation.min.numeric", [
-                "attribute" => "$attributeLabels[$attribute[stock]]",
+                "attribute" => $attributeLabels[$attributes['stock']],
                 "min" => 0
             ]),
             "$attributes[stock].max" => __("validation.max.numeric", [
-                "attribute" => "$attributeLabels[$attribute[stock]]",
-                "min" => 1000000000
+                "attribute" => $attributeLabels[$attributes['stock']],
+                "min" => 1000000
             ]),
         ];
     }

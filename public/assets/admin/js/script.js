@@ -8,6 +8,7 @@ new Constructor.Hashtags();
 new Constructor.Subbanners();
 new Constructor.NewProduct(Helper.getElement('newProductForm'));
 new Constructor.EditProduct(Helper.getElement('editProductForm'));
+new Constructor.ProductDetail();
 
 (function() {
 

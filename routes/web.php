@@ -92,8 +92,8 @@ Route::localized(function () {
 Route::prefix('admin')->group(function() {
     Route::prefix('products')->group(function() {
         Route::prefix('stock')->group(function() {
-            Route::get('/update/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@update');
-            Route::get('/remove/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@remove');
+            Route::post('/update/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@update');
+            Route::post('/remove/{productDetail}', '\App\Http\Controllers\Product\ProductDetailController@remove');
         });
     });
 });

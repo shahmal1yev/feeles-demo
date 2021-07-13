@@ -57,7 +57,7 @@ class StoreRequest extends FormRequest
             $attributes['sizeID'] => 'required|exists:sizes,id',
             $attributes['classID'] => 'required|exists:class_groups,id',
             $attributes['fabricID'] => 'required|exists:fabrics,id',
-            $attributes['stock'] => 'required|integer|min:0|max:1000000000',
+            $attributes['stock'] => 'required|integer|min:0|max:1000000',
         ];
     }
 
@@ -110,7 +110,7 @@ class StoreRequest extends FormRequest
             ]),
             "$attributes[stock].max" => __("validation.max.numeric", [
                 "attribute" => "$attributeLabels[$attribute[stock]]",
-                "min" => 1000000000
+                "min" => 1000000
             ]),
         ];
     }

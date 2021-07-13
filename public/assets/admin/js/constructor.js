@@ -1047,10 +1047,131 @@ function EditProduct(form)
     }
 }
 
-function ProductDetail(row) {
+function ProductDetail() {
     this.availableRows = $('.product-detail-row');
 
+    if (!this.availableRows.length)
+        return false;
     
+    for(let row of this.availableRows) {
+        let inputs = $(row).find('[name]');
+        let saveBtn = $(row).find('.save-button');
+        let deleteBtn = $(row).find('.delete-button');
+
+        saveBtn.click((e) => {
+            e.preventDefault();
+
+            let notValidInputs = [];
+
+            for(let input of inputs)
+            {
+                if (!input.validity.valid)
+                {
+                    $(input).addClass('is-invalid');
+                    notValidInputs.push(input);
+                }
+            }
+
+            if (notValidInputs.length)
+                return false;
+
+            $(
+                Array.from(inputs)
+                .concat(
+                    Array.from(saveBtn),
+                    Array.from(deleteBtn)
+                )
+            ).prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: `/admin/products/stock/update/${$(row).data().productDetailId}`,
+                data: (() => {
+                    let data = new FormData();
+
+                    for(let input of inputs)
+                    {
+                        data.append(input.name, input.value);
+                    }
+
+                    return data;
+                })()
+            })
+            .then((response) => {
+                Helper.showToast({
+                    text: response.data.message
+                });
+            })
+            .catch((err) => {
+                let message = 'Xəta baş verdi';
+
+                if ('response' in err)
+                {
+                    message = err.response.data.message;
+                }
+
+                Helper.showToast({
+                    text: message,
+                    backgroundColor: '#dc3545'
+                });
+            })
+            .finally(() => {
+                $(
+                    Array.from(inputs)
+                    .concat(
+                        Array.from(saveBtn),
+                        Array.from(deleteBtn)
+                    )
+                ).prop('disabled', false)
+                .removeClass('is-invalid');
+            });
+        });
+
+        deleteBtn.click((e) => {
+            e.preventDefault();
+
+            $(
+                Array.from(inputs)
+                .concat(
+                    Array.from(saveBtn),
+                    Array.from(deleteBtn)
+                )
+            ).prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: `/admin/products/stock/remove/${$(row).data().productDetailId}`,
+            })
+            .then(res => {
+                Helper.showToast({
+                    text: res.data.message
+                });
+
+                $(row).remove();
+
+                console.log(res);
+            })
+            .catch(err => {
+                let message = ('response' in err) ? err.response.data.message : 'Xəta baş verdi';
+
+                Helper.showToast({
+                    text: message,
+                    backgroundColor: '#dc3545'
+                });
+
+                console.log(err, err.response);
+            })
+            .finally(() => {
+                $(
+                    Array.from(inputs)
+                    .concat(
+                        Array.from(saveBtn),
+                        Array.from(deleteBtn)
+                    )
+                ).prop('disabled', false);
+            });
+        });
+    }
 }
 
 export {
@@ -1059,5 +1180,6 @@ export {
     Subbanners,
     ProductCard,
     NewProduct,
-    EditProduct
+    EditProduct,
+    ProductDetail
 }

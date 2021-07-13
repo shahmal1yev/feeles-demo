@@ -67,14 +67,14 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    @foreach($product->details as $index => $productDetail)
+                                                    @foreach($product->details()->paginate(10) as $index => $productDetail)
 
-                                                        <tr class='product-detail-row' data-row-id="{{ $product->id }}">
+                                                        <tr class='product-detail-row' data-product-id="{{ $product->id }}" data-product-detail-id="{{ $productDetail->id }}">
                                                             <td>
                                                                 {{ $index + 1 }}
                                                             </td>
                                                             <td>
-                                                                <select class='form-control form-control-sm'>
+                                                                <select name="{{ $requestAttributes['colorID'] }}" class='form-control form-control-sm'>
                                                                     @foreach($colors as $color)
                                                                         @if($color->id == $productDetail->colorId)
                                                                             <option selected value='{{ $color->id }}'>
@@ -89,7 +89,7 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <select class='form-control form-control-sm'>
+                                                                <select name="{{ $requestAttributes['sizeID'] }}" class='form-control form-control-sm'>
                                                                     @foreach($sizes as $size)
                                                                         @if($size->id == $productDetail->sizeId)
                                                                             <option selected value='{{ $size->id }}'>
@@ -104,7 +104,7 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <select class='form-control form-control-sm'>
+                                                                <select name="{{ $requestAttributes['classID'] }}" class='form-control form-control-sm'>
                                                                     @foreach($classGroups as $classGroup)
                                                                         @if($classGroup->id == $productDetail->classGroupId)
                                                                             <option selected value="{{ $classGroup->id }}">
@@ -119,7 +119,7 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <select class='form-control form-control-sm'>
+                                                                <select name="{{ $requestAttributes['fabricID'] }}" class='form-control form-control-sm'>
                                                                     @foreach($fabrics as $fabric)
                                                                         @if($fabric->id == $productDetail->fabricId)
                                                                             <option selected value="{{ $fabric->id }}">
@@ -134,7 +134,8 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <input 
+                                                                <input
+                                                                    name="{{ $requestAttributes['stock'] }}"
                                                                     class='form-control form-control-sm' 
                                                                     type='number' 
                                                                     required 
@@ -155,6 +156,8 @@
 
                                         </div>
                                     </div>
+
+                                    {{ $product->details()->paginate(10)->links('admin.template.layouts.pagination') }}
 
                                 </div>
                             </div>
