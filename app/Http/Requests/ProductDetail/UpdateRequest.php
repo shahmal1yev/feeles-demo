@@ -109,17 +109,17 @@ class UpdateRequest extends FormRequest
             ]),
 
             "$attributes[discount].required" => __("validation.required", [
-                "attribute" => "$attributeLabels[$attribute[discount]]"
+                "attribute" => $attributeLabels[$attributes['discount']]
             ]),
             "$attributes[discount].integer" => __("validation.integer", [
-                'attribute' => $attributeLabels[$attributes['stock']]
+                'attribute' => $attributeLabels[$attributes['discount']]
             ]),
             "$attributes[discount].min" => __("validation.min.numeric", [
-                "attribute" => "$attributeLabels[$attribute[discount]]",
+                "attribute" => $attributeLabels[$attributes['discount']],
                 "min" => 0
             ]),
             "$attributes[discount].max" => __("validation.max.numeric", [
-                "attribute" => "$attributeLabels[$attribute[discount]]",
+                "attribute" => $attributeLabels[$attributes['discount']],
                 "max" => 100
             ]),
         ];

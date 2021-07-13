@@ -61,6 +61,9 @@
                                                             {{ __("Stock") }}
                                                         </th>
                                                         <th>
+                                                            {{ __("Discount") }}
+                                                        </th>
+                                                        <th>
                                                             {{ __("Operation") }}
                                                         </th>
                                                     </tr>
@@ -140,8 +143,25 @@
                                                                     type='number' 
                                                                     required 
                                                                     min='0' 
+                                                                    max='1000000'
                                                                     value="{{ $productDetail->stock }}"
                                                                 />
+                                                            </td>
+                                                            <td>
+                                                                <div class='input-group input-group-sm'>
+                                                                    <input
+                                                                        name="{{ $requestAttributes['discount'] }}"
+                                                                        class="form-control"
+                                                                        type='number'
+                                                                        required
+                                                                        min='0'
+                                                                        max='100'
+                                                                        value="{{ $productDetail->discount }}"
+                                                                    />
+                                                                    <div class='input-group-append'>
+                                                                        <span class='input-group-text'>%</span>
+                                                                    </div>
+                                                                </div>
                                                             </td>
                                                             <td class='text-center'>
                                                                 <button class='save-button btn btn-sm btn-primary save-icon'></button>
