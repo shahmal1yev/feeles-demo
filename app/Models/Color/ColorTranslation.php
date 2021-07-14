@@ -9,5 +9,10 @@ class ColorTranslation extends Model
 {
     use HasFactory;
 
+    public $table = 'color_translations';
     public $timestamps = false;
+
+    public $fillable = [
+        'name'
+    ];
 }

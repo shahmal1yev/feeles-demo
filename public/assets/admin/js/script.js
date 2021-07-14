@@ -10,6 +10,8 @@ new Constructor.NewProduct();
 new Constructor.EditProduct();
 new Constructor.EditProductDetail();
 new Constructor.NewProductDetail();
+new Constructor.EditColor();
+new Constructor.NewColor();
 
 (function() {
 

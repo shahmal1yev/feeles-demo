@@ -1176,11 +1176,11 @@ function EditProductDetail() {
 
 function NewProductDetail() {
     this.form = $('#newProductDetailForm');
-    this.productID = this.form.data().productId;
-
+    
     if (!this.form.length)
         return false;
-
+    
+    this.productID = this.form.data().productId;
     this.inputs = this.form.find('[name]');
     this.saveBtn = this.form.find('.submit-button');
 
@@ -1257,6 +1257,205 @@ function NewProductDetail() {
     });
 }
 
+function EditColor() {
+    this.availableRows = $('.color-row');
+
+    if (!this.availableRows.length)
+        return false;
+
+    for(let row of this.availableRows) {
+        let inputs = $(row).find('[name]');
+        let saveBtn = $(row).find('.save-button');
+        let deleteBtn = $(row).find('.delete-button');
+
+        saveBtn.click(e => {
+            e.preventDefault();
+
+            let notValidInputs = [];
+
+            for (let input of inputs)
+            {
+                if (!input.validity.valid)
+                {
+                    $(input).addClass('is-invalid');
+                    notValidInputs.push(input);
+                }
+            }
+
+            if (notValidInputs.length)
+                return false;
+
+            $(
+                Array.from(inputs)
+                .concat(
+                    Array.from(saveBtn),
+                    Array.from(deleteBtn)
+                )
+            ).prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: `/admin/colors/update/${$(row).data().colorId}`,
+                data: (() => {
+                    let data = new FormData();
+
+                    for(let input of inputs) {
+                        data.append(input.name, input.value);
+                    }
+
+                    return data;
+                })()
+            })
+            .then(response => {
+                Helper.showToast({
+                    text: response.data.message,
+                });
+            })
+            .catch(err => {
+                let message = ('response' in err) ? err.response.data.message : 'Xəta baş verdi';
+
+                Helper.showToast({
+                    text: message,
+                    backgroundColor: '#dc3545'
+                });
+
+                console.log(err, err.response);
+            })
+            .finally(() => {
+                $(
+                    Array.from(inputs)
+                    .concat(
+                        Array.from(saveBtn),
+                        Array.from(deleteBtn)
+                    )
+                ).prop('disabled', false)
+                .removeClass('is-invalid');
+            });
+        });
+
+        deleteBtn.click((e) => {
+            e.preventDefault();
+
+            $(
+                Array.from(inputs)
+                .concat(
+                    Array.from(saveBtn),
+                    Array.from(deleteBtn)
+                )
+            ).prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: `/admin/colors/remove/${$(row).data().colorId}`,
+            })
+            .then(res => {
+                Helper.showToast({
+                    text: res.data.message
+                });
+
+                $(row).remove();
+            })
+            .catch(err => {
+                let message = ('response' in err) ? err.response.data.message : 'Xəta baş verdi';
+
+                Helper.showToast({
+                    text: message,
+                    backgroundColor: '#dc3545'
+                });
+
+                console.log(err, err.response);
+            })
+            .finally(() => {
+                $(
+                    Array.from(inputs)
+                    .concat(
+                        Array.from(saveBtn),
+                        Array.from(deleteBtn)
+                    )
+                ).prop('disabled', false);
+            });
+        });
+    }
+}
+
+function NewColor() {
+    this.form = $('#newColorForm');
+
+    if (!this.form.length)
+        return false;
+
+    this.inputs = this.form.find('[name]');
+    this.saveBtn = this.form.find('.submit-button');
+
+    this.saveBtn.click(e => {
+        e.preventDefault();
+
+        if (this.form[0].checkValidity()) {
+            $(
+                Array.from(this.inputs)
+                .concat(Array.from(this.saveBtn))
+            ).prop('disabled', true);
+
+            axios({
+                method: 'POST',
+                url: '/admin/colors/store',
+                data: (() => {
+                    let data = new FormData();
+
+                    for(let input of this.inputs) {
+                        data.append(input.name, input.value);
+                    }
+
+                    return data;
+                })()
+            })
+            .then(response => {
+                Helper.showToast({
+                    text: response.data.message
+                });
+            })
+            .catch((err) => {
+                try {
+                    switch(err.response.status) {
+                        case 422:
+                            for(let errorItem of Object.entries(err.response.data.errors)) {
+                                let [fieldName, errors] = errorItem;
+    
+                                let relationFieldErrReporter = $(`[data-error-reporter="${fieldName}"]`);
+                                console.log(fieldName);
+    
+                                relationFieldErrReporter.text(errors.join(' '));
+                            }
+                        break;
+                        default:
+                            Helper.showToast({
+                                text: 'Xəta baş verdi',
+                                backgroundColor: '#dc3545'
+                            });
+                        break;
+                    }
+                } catch(e) {
+                    Helper.showToast({
+                        text: 'Xəta baş verdi',
+                        backgroundColor: '#dc3545'
+                    });
+
+                    console.log(e);
+                }
+            })
+            .finally(() => {
+                $(
+                    Array.from(this.inputs)
+                    .concat(Array.from(this.saveBtn))
+                ).prop('disabled', false);
+            });
+
+        }
+
+        this.form.addClass('was-validated');
+    })
+}
+
 export {
     Banners,
     Hashtags,
@@ -1265,5 +1464,8 @@ export {
     NewProduct,
     EditProduct,
     EditProductDetail,
-    NewProductDetail
+    NewProductDetail,
+    EditColor,
+    NewColor,
+    EditSize
 }

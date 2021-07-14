@@ -14,50 +14,94 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                {{ __("Main") }}
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Banner</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseColors"
+                    aria-expanded="true" aria-controls="collapseColors">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Colors") }}</span> 
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseColors" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+
+                        <a class='collapse-item' href='{{ route('admin.colors.index') }}'>
+                            {{ __("All") }}
+                        </a>
+                        <a class='collapse-item' href='{{ route('admin.colors.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSizes"
+                    aria-expanded="true" aria-controls="collapseSizes">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Sizes") }}</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseSizes" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+
+                        <a class='collapse-item' href='{{ route('admin.sizes.index') }}'>
+                            {{ __("All") }}
+                        </a>
+                        <a class='collapse-item' href='{{ route('admin.sizes.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
                     </div>
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFabrics"
+                    aria-expanded="true" aria-controls="collapseFabrics">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Fabrics") }}</span>
+                </a>
+                <div id="collapseFabrics" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
 
-            <!-- Heading -->
+                        <a class="collapse-item" href="{{ route("admin.fabrics.index") }}">
+                            {{ __("All") }}
+                        </a>
+                        <a class='collapse-item' href="{{ route("admin.fabrics.new") }}">
+                            {{ __("New") }}
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClassGroups"
+                    aria-expanded="true" aria-controls="collapseClassGroups">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>{{ __("Class") }}</span>
+                </a>
+                <div id="collapseClassGroups" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+
+
+                        <a class='collapse-item' href='{{ route('admin.class.index') }}'>
+                            {{ __("All") }}
+                        </a>
+
+                        <a class='collapse-item' href='{{ route('admin.class.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+
+            <hr class='sidebar-divider' />
             <div class="sidebar-heading">
-                Addons
+                {{ __("Promotion") }}
             </div>
 
             <!-- Nav Item - Charts -->
@@ -65,58 +109,88 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBanners"
                     aria-expanded="true" aria-controls="collapseBanners">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>{{ __("Banner") }}</span>
+                    <span>{{ __("Banners") }}</span>
                 </a>
                 <div id="collapseBanners" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/banners/new">Yeni</a>
-                        <a class="collapse-item" href="/admin/banners">Hamısı</a>
+
+
+                        <a class='collapse-item' href='{{ route('admin.banners.index') }}'>
+                            {{ __("All") }}
+                        </a>
+                        
+                        <a class='collapse-item' href='{{ route('admin.banners.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubbanners"
                     aria-expanded="true" aria-controls="collapseSubbanners">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>{{ __("Subbanner") }}</span>
+                    <span>{{ __("Subbanners") }}</span>
                 </a>
                 <div id="collapseSubbanners" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/subbanners/new">Yeni</a>
-                        <a class="collapse-item" href="/admin/subbanners">Hamısı</a>
+                        
+                        <a class="collapse-item" href="{{ route('admin.subbanners.index') }}">
+                            {{ __("All") }}
+                        </a>
+
+                        <a class='collapse-item' href='{{ route('admin.subbanners.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHashtags"
                     aria-expanded="true" aria-controls="collapseHashtags">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>{{ __("Heşteq") }}</span>
+                    <span>{{ __("Hashtags") }}</span>
                 </a>
                 <div id="collapseHashtags" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/hashtags/new">Yeni</a>
-                        <a class="collapse-item" href="/admin/hashtags">Hamısı</a>
+                        
+                        <a class='collapse-item' href='{{ route('admin.hashtags.index') }}'>
+                            {{ __("All") }}
+                        </a>
+
+                        <a class='collapse-item' href='{{ route('admin.hashtags.new') }}'>
+                            {{ __("New") }}
+                        </a>
+
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <hr class='sidebar-divider' />
+            <div class="sidebar-heading">
+                {{ __("Products") }}
+            </div>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
                     aria-expanded="true" aria-controls="collapseProducts">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>{{ __("Məhsullar") }}</span>
+                    <span>{{ __("Products") }}</span>
                 </a>
                 <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/products/new">Yeni</a>
-                        <a class="collapse-item" href="/admin/products/stock">Stok</a>
-                        <a class="collapse-item" href="/admin/products">Hamısı</a>
+
+                        <a class="collapse-item" href="{{ route("admin.products.index") }}">
+                            {{ __("All") }}
+                        </a>
+
+                        <a class="collapse-item" href="{{ route("admin.products.new") }}">
+                            {{ __("New") }}
+                        </a>
+                        
                     </div>
                 </div>
             </li>
